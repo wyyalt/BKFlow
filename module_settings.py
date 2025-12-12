@@ -247,6 +247,7 @@ elif env.BKFLOW_MODULE_TYPE == BKFLOWModuleType.interface.value:
         "bk_notice_sdk",
         "bkflow.bk_plugin",
         "bkflow.pipeline_web",
+        "bkflow.label",
     )
 
     # 统计模块
