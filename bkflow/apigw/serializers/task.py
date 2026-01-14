@@ -78,6 +78,10 @@ class CreateTaskSerializer(CredentialsValidationMixin, serializers.Serializer):
     creator = serializers.CharField(help_text=_("创建者"), max_length=USER_NAME_MAX_LENGTH, required=True)
     description = serializers.CharField(help_text=_("任务描述"), required=False, allow_blank=True)
     constants = serializers.JSONField(help_text=_("任务启动参数"), required=False, default={})
+    custom_span_attributes = serializers.DictField(
+        help_text=_("自定义 Span 属性，会添加到所有节点上报的 Span 中"), required=False, default={}
+    )
+    label_ids = serializers.ListField(help_text=_("标签ID列表"), child=serializers.IntegerField(), required=False)
 
 
 class CreateTaskByAppSerializer(serializers.Serializer):
